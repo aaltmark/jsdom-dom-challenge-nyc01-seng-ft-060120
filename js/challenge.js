@@ -32,6 +32,23 @@ document.addEventListener("DOMContentLoaded", function(e){
         counter.textContent = parseInt(counter.textContent, 10) + 1 
     }
 
+    pauseButton.addEventListener("click", function(e){
+        window.clearInterval(counterID)
+
+        pauseButton.innerHTML = ("start")
+
+        pauseButton.addEventListener("click", function(e){
+            e = window.setInterval(timeIncrement, [1000]);
+        })
+
+        
+        // const timeOutID = window.setTimeout(timePause, [0])
+        // function timePause(){
+        //     counter.textContext
+        // }
+        
+    })
+
 
     const form = document.getElementById("comment-form")
     form.addEventListener("submit", addComment)
