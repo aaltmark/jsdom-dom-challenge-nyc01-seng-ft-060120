@@ -26,6 +26,12 @@ document.addEventListener("DOMContentLoaded", function(e){
         counter.textContent = parseInt(counter.textContent, 10) - 1 
     })
 
+    const counterID = window.setInterval(timeIncrement, [1000]);
+
+    function timeIncrement() {
+        counter.textContent = parseInt(counter.textContent, 10) + 1 
+    }
+
 
     const form = document.getElementById("comment-form")
     form.addEventListener("submit", addComment)
@@ -48,17 +54,20 @@ const heartButton = document.getElementById("heart");
 
 heartButton.addEventListener("click", function(e){
     const heartLi = document.createElement("li");
-    const heartSpan = document.createElement("span"); 
+    const heartSpan = document.createElement("span");
+    let count = 0;
+    //function heartCounter(){
+    heartButton.onclick = function() {
+        count+= 1;
+    }
+    //heartSpan.textContent = heartCounter();
     
-    heartSpan.innerHTML = {
-        counter = 0
-        heartButton.onclick = function() {
-        counter += 1
-    }}
     
-    heartLi.innerHTML = `${counter.innerHTML} has been liked ${heartSpan.innerHTML}`
-    console.dir(heartLi.innerHTML)
+    
+    heartLi.innerHTML = `${counter.innerHTML} has been liked ${heartSpan.textContent}`
+    console.log(count)
 })
+
 
 
 })
